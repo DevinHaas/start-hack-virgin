@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Home, Users, Rocket, House, Leaf, Lightbulb } from "lucide-react";
+import { House, Leaf, Lightbulb } from "lucide-react";
 
 interface MobileFooterProps {
   activeTab?: "community" | "home" | "projects";
@@ -18,7 +18,7 @@ export default function MobileFooter({
   };
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 rounded-4xl mx-3 bg-white border-gray-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+    <div className="fixed bottom-4 left-0 right-0 rounded-4xl m-3 bg-white border-gray-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div className="flex justify-around items-center h-20 px-6">
         <Link
           href="/community"

@@ -1,15 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import Header from "./components/header";
 import MobileFooter from "./components/mobile-footer";
 import GroupStats from "./components/group-stats";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"community" | "home" | "projects">(
-    "home",
-  );
-
   return (
     <main className="min-h-screen bg-white pb-24">
       <GroupStats
