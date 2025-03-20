@@ -3,7 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% 100%;
+  }
+  .bg-pos-0 {
+    background-position: 0% 0%;
+  }
+  .bg-pos-100 {
+    background-position: 100% 0%;
+  }
+}
+
 :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
   --virgin-primary: #218846;
   --virgin-accent: #7ae195;
   --virgin-red: #ff0000;
