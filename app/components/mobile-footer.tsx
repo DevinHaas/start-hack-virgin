@@ -11,7 +11,7 @@ export default function MobileFooter({
   activeTab = "home",
   onTabChange,
 }: MobileFooterProps) {
-  const handleTabChange = (tab: "ideas" | "home" | "projects") => {
+  const handleTabChange = (tab: "ideas" | "home" | "projects" | "none") => {
     if (onTabChange) {
       onTabChange(tab);
     }
@@ -27,9 +27,7 @@ export default function MobileFooter({
         >
           <Lightbulb
             size={28}
-            className={
-              activeTab === "community" ? "text-[#228b47]" : "text-black"
-            }
+            className={activeTab === "ideas" ? "text-[#228b47]" : "text-black"}
           />
         </Link>
 

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { title, description } = await req.json();
+    const { title, description, authorId } = await req.json();
     const newProject = await prisma.project.create({
       data: {
         title,

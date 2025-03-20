@@ -1,19 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ChevronUp } from "lucide-react";
-import Header from "@/components/header";
 
 interface IdeaDetailPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: number }>;
 }
 
-export default function IdeaDetailPage({ params }: IdeaDetailPageProps) {
+export default async function IdeaDetailPage({ params }: IdeaDetailPageProps) {
   // In a real app, you would fetch the idea details based on the ID
   // For this example, we'll use hardcoded data
+  const { id } = await params;
   const ideaDetails = {
-    id: params.id,
+    id: id,
     title: "Clean 5 Tonnes of plastic from the ocean",
     upvotes: 155,
     date: "5 days ago",

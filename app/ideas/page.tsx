@@ -5,17 +5,25 @@ import NewIdeaButton from "@/components/new-idea-button";
 import { Sparkles } from "lucide-react";
 import { useState } from "react";
 import { useCreateProject } from "@/hooks/useCreateProject";
+import { useAuth } from "@clerk/nextjs";
 
 export default function CommunityPage() {
+  const { userId } = useAuth();
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [showNewIdeaForm, setShowNewIdeaForm] = useState(false);
   const mutation = useCreateProject();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    mutation.mutate(title, {
-      onSuccess: () => setTitle(""),
-    });
+    if (userId) {
+      mutation.mutate(
+        { title: title, description: description, authorId: userId },
+        {
+          onSuccess: () => setTitle(""),
+        },
+      );
+    }
   };
   return (
     <main className="min-h-screen bg-white pb-24">
@@ -61,6 +69,7 @@ export default function CommunityPage() {
                   <textarea
                     id="description"
                     rows={4}
+                    onChange={(e) => setDescription(e.target.value)}
                     className="w-full p-3 border rounded-lg"
                     placeholder="Describe your sustainability idea in detail..."
                   />
@@ -130,7 +139,7 @@ export default function CommunityPage() {
         />
       </div>
 
-      <MobileFooter activeTab="community" />
+      <MobileFooter activeTab="ideas" />
     </main>
   );
 }

@@ -1,19 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar } from "lucide-react";
-import Header from "@/components/header";
 
 interface ProgramDetailPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: number }>;
 }
 
-export default function ProgramDetailPage({ params }: ProgramDetailPageProps) {
+export default async function ProgramDetailPage({
+  params,
+}: ProgramDetailPageProps) {
   // In a real app, you would fetch the program details based on the ID
   // For this example, we'll use hardcoded data
+  const { id } = await params;
   const programDetails = {
-    id: params.id,
+    id: id,
     title: "Clean 5 Tonnes of plastic from the ocean",
     date: "5 days ago",
     author: {

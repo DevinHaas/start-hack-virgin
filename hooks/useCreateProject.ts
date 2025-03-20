@@ -1,16 +1,21 @@
+import { ProjectParams } from "@/types/ProjectType";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const createProject = async (title: string, description: string) => {
-  const { data } = await axios.post(
+const createProject = async (project: ProjectParams) => {
+  const { request, data } = await axios.post(
     "/api/projects",
-    { title: title, description: description },
+    {
+      title: project.title,
+      description: project.description,
+      authorId: project.authorId,
+    },
     {
       headers: { ContentType: "application/json" },
     },
   );
 
-  if (!response.ok) {
+  if (!request.ok) {
     throw Error("Failed to create new Project");
   }
 
