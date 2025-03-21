@@ -13,7 +13,7 @@ export default function Header({
   points = 455,
 }: HeaderProps) {
   return (
-    <header className="w-full bg-white shadow-sm">
+    <header className="w-full bg-white shadow-sm z-50 fixed top-0 left-0 right-0">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <div className="relative w-12 h-12">

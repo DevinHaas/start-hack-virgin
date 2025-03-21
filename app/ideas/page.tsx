@@ -21,12 +21,12 @@ export default function CommunityPage() {
         { title: title, description: description, authorId: userId },
         {
           onSuccess: () => setTitle(""),
-        },
+        }
       );
     }
   };
   return (
-    <main className="min-h-screen bg-white pb-24">
+    <main>
       <div className="px-4 py-6 space-y-4">
         <div className="sticky top-0 z-10">
           <div className="px-4 py-4 flex justify-between items-center">

@@ -29,7 +29,7 @@ export default function ProgramCard({
 
   return (
     <Link href={"/projects/${id}"}>
-      <div className="bg-white rounded-xl overflow-hidden shadow-md">
+      <div className="bg-white rounded-xl overflow-hidden shadow-md mb-6">
         {/* Image */}
         <div className="relative h-48 w-full">
           <Image

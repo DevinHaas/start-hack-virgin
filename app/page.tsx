@@ -5,7 +5,7 @@ import GroupStats from "./components/group-stats";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white pb-24">
+    <main>
       <GroupStats
         title="Flourishing People"
         description="Empowering individuals to take action towards sustainability."
@@ -19,7 +19,7 @@ export default function Home() {
         title="Radical Collaboration"
         description="Creating spaces for collective action and innovation in sustainability."
         participants={55890}
-        dollarsInvested={498000}
+        dollarsInvested={498}
         projectsCompleted={4876}
       />
 
@@ -28,7 +28,7 @@ export default function Home() {
         title="A Healthy Planet for All"
         description="This objective has the goal to keep our planet safe and healthy with a combined effort."
         participants={50412}
-        dollarsInvested={739000}
+        dollarsInvested={739}
         projectsCompleted={5678}
       />
       <MobileFooter></MobileFooter>
