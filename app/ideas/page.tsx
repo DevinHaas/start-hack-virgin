@@ -6,6 +6,7 @@ import { Sparkles } from "lucide-react";
 import { useState } from "react";
 import { useCreateProject } from "@/hooks/useCreateProject";
 import { useAuth } from "@clerk/nextjs";
+import { ProjectTypeEnum } from "@/types/ProjectTypeEnum";
 
 export default function CommunityPage() {
   const { userId } = useAuth();
@@ -18,7 +19,12 @@ export default function CommunityPage() {
     e.preventDefault();
     if (userId) {
       mutation.mutate(
-        { title: title, description: description, authorId: userId },
+        {
+          title: title,
+          description: description,
+          authorId: userId,
+          projectType: ProjectTypeEnum.IDEA,
+        },
         {
           onSuccess: () => setTitle(""),
         }
@@ -77,7 +83,7 @@ export default function CommunityPage() {
                 <div className="flex gap-2">
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#228b47] text-white rounded-lg font-medium"
+                    className="hover:cursor-pointer px-4 py-2 bg-[#228b47] text-white rounded-lg font-medium"
                   >
                     Submit Idea
                   </button>

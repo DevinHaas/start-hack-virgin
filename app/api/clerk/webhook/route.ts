@@ -40,6 +40,7 @@ export async function POST(req: Request) {
     const clerk_id = evt?.data?.id as string;
     const clerk_id_for_session = evt.data.client_id as string;
 
+    console.log(evt);
     console.log("🔔 Clerk Webhook Received:", clerk_id);
 
     switch (eventType) {
@@ -47,6 +48,7 @@ export async function POST(req: Request) {
         await createUser(clerk_id);
         break;
       case "session.created":
+        console.log("session created");
         await createUser(clerk_id_for_session);
         break;
       default:

@@ -20,8 +20,9 @@ CREATE TABLE "User" (
 CREATE TABLE "Project" (
     "id" UUID NOT NULL,
     "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "authorId" UUID NOT NULL,
+    "authorId" TEXT NOT NULL,
     "projectType" "ProjectType" NOT NULL DEFAULT 'IDEA',
 
     CONSTRAINT "Project_pkey" PRIMARY KEY ("id")
@@ -52,7 +53,7 @@ CREATE TABLE "Comment" (
 CREATE UNIQUE INDEX "User_clerk_id_key" ON "User"("clerk_id");
 
 -- AddForeignKey
-ALTER TABLE "Project" ADD CONSTRAINT "Project_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Project" ADD CONSTRAINT "Project_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("clerk_id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "ProjectUser" ADD CONSTRAINT "ProjectUser_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
