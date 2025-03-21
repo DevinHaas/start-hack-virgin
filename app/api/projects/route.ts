@@ -11,6 +11,7 @@ export async function POST(req: Request) {
         authorId,
       },
     });
+    console.log(newProject);
     return NextResponse.json(newProject, { status: 201 });
   } catch {
     return NextResponse.json(

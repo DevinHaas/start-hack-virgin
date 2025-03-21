@@ -27,7 +27,7 @@ export default function NewIdeaButton({ onClick }: NewIdeaButtonProps) {
         relative overflow-hidden group flex items-center gap-2 px-4 py-2 
         rounded-full bg-[#228b47] text-white font-medium shadow-md
         transition-all duration-300 ease-in-out
-        hover:shadow-lg hover:scale-105
+        hover:shadow-lg hover:cursor-pointer hover:scale-105
         ${isAnimating ? "animate-pulse" : ""}
       `}
     >

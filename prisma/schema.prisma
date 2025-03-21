@@ -38,8 +38,8 @@ model Project {
   title                 String
   description           String
   createdAt             DateTime      @default(now())
-  author                User          @relation(fields: [authorId], references: [id], name: "AuthorProjects")
-  authorId              String        @db.Uuid
+  author                User          @relation(fields: [authorId], references: [clerk_id], name: "AuthorProjects")
+  authorId              String        
   projectType           ProjectType   @default(IDEA)
   projectParticipations ProjectUser[] @relation("ProjectParticipations")
   comments              Comment[]     @relation("ProjectComments")

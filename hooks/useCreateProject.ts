@@ -9,6 +9,7 @@ const createProject = async (project: ProjectParams) => {
       title: project.title,
       description: project.description,
       authorId: project.authorId,
+      projectType: project.projectType,
     },
     {
       headers: { ContentType: "application/json" },
